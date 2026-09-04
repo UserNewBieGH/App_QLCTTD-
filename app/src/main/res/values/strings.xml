@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Quản Lý Chi Tiêu</string>
+    <string name="title_dashboard">Tổng quan</string>
+    <string name="title_transactions">Giao dịch</string>
+    <string name="title_budgets">Ngân sách</string>
+    <string name="title_savings">Tiết kiệm</string>
+    <string name="title_reports">Báo cáo</string>
+    <string name="title_wallets">Ví tiền</string>
+    <string name="title_categories">Danh mục</string>
+    <string name="title_profile">Tài khoản</string>
+    <string name="title_ai_chat">Trợ lý AI Coins Vision</string>
+    
+    <!-- Auth -->
+    <string name="login_title">Đăng Nhập</string>
+    <string name="login_subtitle">Chào mừng bạn quay trở lại!</string>
+    <string name="register_title">Tạo Tài Khoản</string>
+    <string name="register_subtitle">Bắt đầu quản lý tài chính thông minh</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="username">Họ và tên</string>
+    <string name="btn_login">Đăng nhập</string>
+    <string name="btn_register">Đăng ký ngay</string>
+    <string name="no_account">Chưa có tài khoản? Đăng ký</string>
+    <string name="have_account">Đã có tài khoản? Đăng nhập</string>
+    
+    <!-- Dashboard -->
+    <string name="total_balance">Tổng số dư khả dụng</string>
+    <string name="monthly_income">Thu nhập tháng</string>
+    <string name="monthly_expense">Chi tiêu tháng</string>
+    <string name="recent_transactions">Giao dịch gần đây</string>
+    <string name="see_all">Xem tất cả</string>
+    <string name="budget_warning_banner">Cảnh báo chi tiêu chạm ngưỡng ngân sách!</string>
+    
+    <!-- Transactions -->
+    <string name="add_transaction">Thêm giao dịch</string>
+    <string name="edit_transaction">Chỉnh sửa giao dịch</string>
+    <string name="transaction_type">Loại giao dịch</string>
+    <string name="income">Thu nhập</string>
+    <string name="expense">Chi tiêu</string>
+    <string name="amount">Số tiền</string>
+    <string name="category">Danh mục</string>
+    <string name="wallet">Ví thanh toán</string>
+    <string name="date">Ngày giao dịch</string>
+    <string name="note">Ghi chú (tùy chọn)</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="search_hint">Tìm kiếm ghi chú...</string>
+    
+    <!-- Wallets -->
+    <string name="add_wallet">Thêm ví mới</string>
+    <string name="wallet_name">Tên ví</string>
+    <string name="initial_balance">Số dư ban đầu</string>
+    <string name="default_wallet">Ví mặc định</string>
+    
+    <!-- Savings -->
+    <string name="add_savings_goal">Tạo mục tiêu mới</string>
+    <string name="goal_name">Tên mục tiêu</string>
+    <string name="target_amount">Số tiền mục tiêu</string>
+    <string name="deadline">Hạn chót</string>
+    <string name="deposit_money">Nạp tiền tiết kiệm</string>
+    
+    <!-- Common -->
+    <string name="save">Lưu lại</string>
+    <string name="cancel">Hủy</string>
+    <string name="delete">Xóa</string>
+    <string name="confirm_delete">Bạn có chắc chắn muốn xóa không?</string>
+</resources>

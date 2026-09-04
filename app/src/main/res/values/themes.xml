@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Base.Theme.AppQLCT" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="android:statusBarColor">@color/app_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/app_background</item>
+    </style>
+
+    <style name="Theme.AppQLCT" parent="Base.Theme.AppQLCT" />
+
+    <style name="ShapeAppearance.App.CornerRound" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
+</resources>
