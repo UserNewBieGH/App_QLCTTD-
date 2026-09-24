@@ -53,13 +53,23 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        if (!password.equals(confirmPassword)) {
-            Toast.makeText(this, "Mật khẩu xác nhận không khớp!", Toast.LENGTH_SHORT).show();
+        if (username.length() < 2) {
+            Toast.makeText(this, "Tên người dùng phải có ít nhất 2 ký tự!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Địa chỉ email không đúng định dạng!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (password.length() < 6) {
             Toast.makeText(this, "Mật khẩu phải có ít nhất 6 ký tự!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!password.equals(confirmPassword)) {
+            Toast.makeText(this, "Mật khẩu xác nhận không khớp!", Toast.LENGTH_SHORT).show();
             return;
         }
 

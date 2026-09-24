@@ -129,6 +129,7 @@ public class BudgetsFragment extends Fragment {
                         Toast.makeText(requireContext(), "Vui lòng nhập hạn mức!", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    limitStr = limitStr.replace(".", "").replace(",", "").trim();
                     try {
                         double limit = Double.parseDouble(limitStr);
                         if (limit <= 0) {

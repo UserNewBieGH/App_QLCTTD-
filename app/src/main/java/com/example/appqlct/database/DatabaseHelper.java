@@ -155,6 +155,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return user;
     }
 
+    public boolean verifyPassword(int userId, String currentPassword) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT id FROM users WHERE id = ? AND password_hash = ?",
+                new String[]{String.valueOf(userId), currentPassword});
+        boolean match = (cursor != null && cursor.moveToFirst());
+        if (cursor != null) cursor.close();
+        return match;
+    }
+
     public boolean updatePassword(int userId, String newPassword) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -162,11 +171,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update("users", cv, "id = ?", new String[]{String.valueOf(userId)}) > 0;
     }
 
-    public boolean updateProfile(int userId, String username) {
+    public int updateUserProfile(int userId, String username, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
+        // Check if email already exists for another user
+        Cursor cursor = db.rawQuery("SELECT id FROM users WHERE email = ? AND id != ?",
+                new String[]{email.toLowerCase().trim(), String.valueOf(userId)});
+        if (cursor != null && cursor.moveToFirst()) {
+            cursor.close();
+            return -1; // Email already in use
+        }
+        if (cursor != null) cursor.close();
+
         ContentValues cv = new ContentValues();
         cv.put("username", username);
-        return db.update("users", cv, "id = ?", new String[]{String.valueOf(userId)}) > 0;
+        cv.put("email", email.toLowerCase().trim());
+        boolean success = db.update("users", cv, "id = ?", new String[]{String.valueOf(userId)}) > 0;
+        return success ? 1 : 0;
+    }
+
+    public int getTotalTransactionCount(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT COUNT(id) FROM transactions WHERE user_id = ?", new String[]{String.valueOf(userId)});
+        int count = 0;
+        if (c != null && c.moveToFirst()) {
+            count = c.getInt(0);
+            c.close();
+        }
+        return count;
+    }
+
+    public double getTotalIncomeAllTime(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT IFNULL(SUM(amount), 0) FROM transactions WHERE user_id = ? AND type = 'income'", new String[]{String.valueOf(userId)});
+        double sum = 0;
+        if (c != null && c.moveToFirst()) {
+            sum = c.getDouble(0);
+            c.close();
+        }
+        return sum;
+    }
+
+    public double getTotalExpenseAllTime(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT IFNULL(SUM(amount), 0) FROM transactions WHERE user_id = ? AND type = 'expense'", new String[]{String.valueOf(userId)});
+        double sum = 0;
+        if (c != null && c.moveToFirst()) {
+            sum = c.getDouble(0);
+            c.close();
+        }
+        return sum;
     }
 
     public void seedUserData(int userId) {

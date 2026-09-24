@@ -180,6 +180,9 @@ public class AddEditTransactionActivity extends AppCompatActivity {
             return;
         }
 
+        // Chuẩn hóa loại bỏ dấu chấm và phẩy ngăn cách hàng nghìn
+        amountStr = amountStr.replace(".", "").replace(",", "").trim();
+
         double amount;
         try {
             amount = Double.parseDouble(amountStr);

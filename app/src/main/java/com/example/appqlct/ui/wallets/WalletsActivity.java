@@ -130,6 +130,7 @@ public class WalletsActivity extends AppCompatActivity {
 
                     if (!isEdit) {
                         String balStr = etBalance.getText() != null ? etBalance.getText().toString().trim() : "0";
+                        balStr = balStr.replace(".", "").replace(",", "").trim();
                         double balance = 0;
                         try {
                             if (!balStr.isEmpty()) balance = Double.parseDouble(balStr);

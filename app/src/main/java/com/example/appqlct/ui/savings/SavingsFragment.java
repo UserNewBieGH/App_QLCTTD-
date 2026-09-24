@@ -119,6 +119,7 @@ public class SavingsFragment extends Fragment {
                         Toast.makeText(requireContext(), "Vui lòng nhập tên mục tiêu và số tiền!", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    targetStr = targetStr.replace(".", "").replace(",", "").trim();
 
                     try {
                         double target = Double.parseDouble(targetStr);
@@ -168,6 +169,7 @@ public class SavingsFragment extends Fragment {
                         Toast.makeText(requireContext(), "Vui lòng nhập số tiền nạp!", Toast.LENGTH_SHORT).show();
                         return;
                     }
+                    amountStr = amountStr.replace(".", "").replace(",", "").trim();
 
                     try {
                         double amount = Double.parseDouble(amountStr);
